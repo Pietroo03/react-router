@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+}
