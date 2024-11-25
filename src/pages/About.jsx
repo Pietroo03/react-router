@@ -10,7 +10,7 @@ export default function About() {
                 </div>
 
                 <section className="posts py-5 bg-light">
-                    <div className="container">
+                    <div className="container bg-white p-5 shadow rounded">
                         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
 
                             {team.map((member, index) => (

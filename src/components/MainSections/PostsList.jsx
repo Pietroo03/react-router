@@ -2,7 +2,7 @@ export default function PostsList({ postsData, handleRemove, api_server }) {
 
     return (
         <section className="posts py-5 bg-light">
-            <div className="container">
+            <div className="container bg-white p-5 shadow rounded">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
                     {postsData.data ?
