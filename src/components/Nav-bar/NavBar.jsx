@@ -6,6 +6,8 @@ export default function NavBar() {
             <NavLink to='/' className='nav-link'>Home</NavLink>
             <NavLink to='/about' className='nav-link'>About</NavLink>
             <NavLink to='/posts' className='nav-link'>Posts</NavLink>
+            <NavLink to='/create' className='nav-link'>Add Post</NavLink>
+
         </nav>
 
     )

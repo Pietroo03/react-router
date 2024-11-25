@@ -3,6 +3,7 @@ import DefaultLayout from './pages/DefaultLayout'
 import Home from './pages/Homepage'
 import About from './pages/About'
 import Posts from './pages/Posts'
+import CreatePost from './pages/CreatePost'
 import './App.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/posts' element={<Posts />} />
+            <Route path='/create' element={<CreatePost />} />
           </Route>
         </Routes>
       </BrowserRouter>

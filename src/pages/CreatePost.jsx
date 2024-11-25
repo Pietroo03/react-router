@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
-import AddPost from "./MainSections/AddPostForm"
+import AddPost from "../components/MainSections/AddPostForm"
 
-export default function AppMain() {
+const api_server = 'http://127.0.0.1:3000'
+const api_endpoint = '/posts'
+
+export default function CreatePost() {
 
     const [formData, setFormData] = useState({
         title: '',
@@ -11,6 +14,8 @@ export default function AppMain() {
         published: false,
         tags: []
     })
+
+    const [postsData, setPostsData] = useState({})
 
     const tagList = ['Torte', 'Ricette vegetariane', 'Ricette al forno', 'Veloce', 'Salato', 'Cioccolato']
 
@@ -73,19 +78,36 @@ export default function AppMain() {
 
     }
 
+    function fetchData(url = api_server + api_endpoint) {
+        fetch(url)
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data);
+                setPostsData(data)
+            })
+            .catch(error => {
+                console.error('errore nel recuper dati', error);
+
+            })
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
 
-        <main className="bg-light py-5">
+        <>
 
-            <div className="container bg-white p-5 shadow rounded">
-                <h2 className="mb-4 text-primary">Add Post</h2>
+            <main className="bg-light py-5">
+                <div className="container bg-white p-5 shadow rounded">
+                    <h2 className="mb-4 text-primary">Add Post</h2>
 
-                <AddPost addNewPost={addNewPost} formData={formData} setFormData={setFormData} tagList={tagList} handleTag={handleTag} />
+                    <AddPost addNewPost={addNewPost} formData={formData} setFormData={setFormData} tagList={tagList} handleTag={handleTag} />
 
-            </div >
+                </div >
+            </main>
 
-        </main >
-
+        </>
     )
-
 }

@@ -1,4 +1,4 @@
-export default function addPost({ addNewPost, formData, setFormData, tagList, handleTag }) {
+export default function AddPost({ addNewPost, formData, setFormData, tagList, handleTag }) {
 
     return (
         <form onSubmit={addNewPost}>
