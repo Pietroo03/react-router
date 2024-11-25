@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react"
 import AddPost from "./MainSections/AddPostForm"
-import PostsList from "./MainSections/PostsList"
-
-
 
 export default function AppMain() {
 
@@ -76,12 +73,6 @@ export default function AppMain() {
 
     }
 
-
-
-
-
-
-
     return (
 
         <main className="bg-light py-5">
@@ -90,9 +81,6 @@ export default function AppMain() {
                 <h2 className="mb-4 text-primary">Add Post</h2>
 
                 <AddPost addNewPost={addNewPost} formData={formData} setFormData={setFormData} tagList={tagList} handleTag={handleTag} />
-
-
-
 
             </div >
 
