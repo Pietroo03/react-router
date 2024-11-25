@@ -3,6 +3,8 @@ import AppHeader from './components/AppHeader'
 import AppMain from './components/AppMain'
 import DefaultLayout from './pages/DefaultLayout'
 import Home from './pages/Homepage'
+import About from './pages/About'
+import Posts from './pages/Posts'
 import './App.css'
 
 function App() {
@@ -14,7 +16,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/posts' element={<Posts />} />
           </Route>
         </Routes>
       </BrowserRouter>

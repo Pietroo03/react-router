@@ -2,8 +2,7 @@ import { useState, useEffect } from "react"
 import AddPost from "./MainSections/AddPostForm"
 import PostsList from "./MainSections/PostsList"
 
-const api_server = 'http://127.0.0.1:3000'
-const api_endpoint = '/posts'
+
 
 export default function AppMain() {
 
@@ -15,7 +14,7 @@ export default function AppMain() {
         published: false,
         tags: []
     })
-    const [postsData, setPostsData] = useState({})
+
     const tagList = ['Torte', 'Ricette vegetariane', 'Ricette al forno', 'Veloce', 'Salato', 'Cioccolato']
 
     function handleTag(tag) {
@@ -77,45 +76,11 @@ export default function AppMain() {
 
     }
 
-    function fetchData(url = api_server + api_endpoint) {
-        fetch(url)
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data);
-                setPostsData(data)
-            })
-            .catch(error => {
-                console.error('errore nel recuper dati', error);
 
-            })
-    }
 
-    function handleRemove(e) {
 
-        const deletePost = e.target.getAttribute("data-slug")
 
-        setPostsData(prevData => ({
-            ...prevData,
-            data: prevData.data.filter(post => post.slug !== deletePost)
-        }))
 
-        fetch(`${api_server}${api_endpoint}/${deletePost}`, {
-            method: 'DELETE',
-        })
-            .then(resp => resp.json())
-            .then((data) => {
-                console.log('Post eliminato', data);
-
-            })
-            .catch(error => {
-                console.error('errore nell eliminare il post: ', error);
-                fetchData()
-            })
-    }
-
-    useEffect(() => {
-        fetchData()
-    }, [])
 
     return (
 
@@ -126,9 +91,8 @@ export default function AppMain() {
 
                 <AddPost addNewPost={addNewPost} formData={formData} setFormData={setFormData} tagList={tagList} handleTag={handleTag} />
 
-                <h2 className="mt-4 text-primary">Posts List</h2>
 
-                <PostsList postsData={postsData} handleRemove={handleRemove} api_server={api_server} />
+
 
             </div >
 
