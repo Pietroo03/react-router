@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function PostPage() {
@@ -62,6 +62,12 @@ export default function PostPage() {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="text-center m-5">
+                                <Link to={'/posts'}>
+                                    <button className="btn btn-primary">Torna alle ricette</button>
+
+                                </Link>
                             </div>
                         </div>
 
