@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function PostsList({ postsData, handleRemove, api_server }) {
 
     return (
@@ -10,12 +12,15 @@ export default function PostsList({ postsData, handleRemove, api_server }) {
                             <div className="col" key={index}>
 
                                 <div className="card h-100 shadow-sm border-light">
-                                    <img
-                                        src={api_server + post.image}
-                                        className="card-img-top img-fluid"
-                                        alt={post.title}
-                                        style={{ objectFit: 'cover', height: '200px' }}
-                                    />
+                                    <Link to={`/posts/${post.slug}`}>
+                                        <img
+                                            src={api_server + post.image}
+                                            className="card-img-top img-fluid"
+                                            alt={post.title}
+                                            style={{ objectFit: 'cover', height: '200px' }}
+                                        />
+
+                                    </Link>
                                     <div className="card-body d-flex flex-column">
                                         <h5 className="card-title text-truncate">
                                             {post.title}
